@@ -30,7 +30,6 @@ public class Products {
     private String productDescription;
 
     @Lob
-    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] productImage;
 
     @Column(name = "price")
