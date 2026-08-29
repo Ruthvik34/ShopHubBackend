@@ -18,6 +18,11 @@ public class UserController {
 
     private final UserService userService;
 
+    @GetMapping("/health")
+    public  String greet(){
+        return "Health is Up";
+    }
+
 
     @GetMapping("/me")
     public ResponseEntity<UserResponseDto> getUserProfileInfo(){
