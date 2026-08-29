@@ -24,25 +24,25 @@ public class UserController {
     }
 
 
-    @GetMapping("/me")
+    @GetMapping("/me/secure")
     public ResponseEntity<UserResponseDto> getUserProfileInfo(){
         return new ResponseEntity<>(userService.getUserProfile(), HttpStatus.OK);
     }
 
 
 
-    @PatchMapping("/update/profile")
+    @PatchMapping("/update/profile/secure")
     public ResponseEntity<String> updateProfile(@Valid @RequestBody UpdateUserProfileRequest updateUserProfileRequest){
         return new ResponseEntity<>(userService.updateProfile(updateUserProfileRequest),HttpStatus.OK);
     }
 
-    @PutMapping("/update/password")
+    @PutMapping("/update/password/secure")
     public ResponseEntity<String> updatePassword(@Valid @RequestBody UpdatePasswordRequest updatePasswordRequest){
         return new ResponseEntity<>(userService.updatePassword(updatePasswordRequest),HttpStatus.OK);
     }
 
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/secure")
     public ResponseEntity<String> deleteUserProfile(){
         return new ResponseEntity<>(userService.deleteMyProfile(),HttpStatus.OK);
     }

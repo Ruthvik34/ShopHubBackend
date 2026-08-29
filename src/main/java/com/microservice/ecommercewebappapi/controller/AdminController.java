@@ -18,7 +18,7 @@ public class AdminController {
 
     private final UserService userService;
 
-    @PatchMapping("/users/{email}/roles")
+    @PatchMapping("/users/{email}/roles/secure")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> updateUserRole(
             @PathVariable String email,
@@ -29,7 +29,7 @@ public class AdminController {
         );
     }
 
-    @DeleteMapping("/users/{email}/roles")
+    @DeleteMapping("/users/{email}/roles/secure")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<String> removeUserRole(
             @PathVariable String  email,
@@ -40,7 +40,7 @@ public class AdminController {
         );
     }
 
-    @GetMapping("/users")
+    @GetMapping("/users/secure")
     public ResponseEntity<List<Users>> getAllUsers(){
         return new ResponseEntity<>(userService.getAllUsers(),HttpStatus.OK);
     }

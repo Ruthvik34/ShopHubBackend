@@ -33,7 +33,7 @@ public class ProductController {
 
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}/secure")
     @PreAuthorize("hasRole('ADMIN')")
     public  ResponseEntity<String> deleteProduct(@PathVariable Long id){
 
@@ -42,7 +42,7 @@ public class ProductController {
     }
 
     @PatchMapping(
-            value = "/{id}",
+            value = "/{id}/secure",
             consumes = MediaType.MULTIPART_FORM_DATA_VALUE
     )
     @PreAuthorize("hasRole('ADMIN')")
@@ -57,7 +57,7 @@ public class ProductController {
         );
     }
 
-    @GetMapping("/{id}/image")
+    @GetMapping("/{id}/image/secure")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<byte[]> getProductImage(
             @PathVariable Long id) {
